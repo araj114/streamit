@@ -1,4 +1,10 @@
 .container
-  %h1 Pages#home
-  %p Find me in app/views/pages/home.html.haml
-  %input{type => "file"} Upload 
+  = form_for Track.new do |f|
+    = f.label :track, "Upload tracks:"
+    = f.file_field :track
+
+  %script#template-upload{:type => "text/x-tmpl"}
+    .upload
+      {%=o.name%}
+    .progress
+      .bar{ style: 'width: 0%' }
