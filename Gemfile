@@ -11,6 +11,7 @@ gem "resque"
 gem 'flat-ui-rails'
 gem 'bootstrap-sass'
 gem 'font-awesome-rails'
+gem 'taglib-ruby'
 
 # Gems used only for assets and not required
 # in production environments by default.

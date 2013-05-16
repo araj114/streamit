@@ -1,13 +1,22 @@
 class TracksController < ApplicationController
-  def show
-  end
+
+  require 'taglib'
 
   def new
     @track = Track.new
   end
 
   def create
-    @track = Track.create(params[:track])
+    @track = Track.new(params[:track])
+
+    TagLib::MPEG::File.open(@track.track.path) do |file|
+      tag = file.id3v2_tag
+
+      @track.name = tag.title
+      @track.artist = tag.artist
+    end
+
+    @track.save
 
     respond_to do |format|
       format.js
@@ -22,4 +31,5 @@ class TracksController < ApplicationController
 
     @playlist.tracks << @track
   end
+
 end

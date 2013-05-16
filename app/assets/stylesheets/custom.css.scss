@@ -5,3 +5,7 @@
 body {
   background: url('/assets/bg.png');
 }
+
+[class^="icon-"], [class*=" icon-"] {
+  vertical-align: middle;
+}
