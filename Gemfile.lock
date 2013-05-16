@@ -43,6 +43,7 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    flat-ui-rails (0.0.2)
     font-awesome-rails (3.1.1.1)
       railties (>= 3.2, < 5.0)
     haml (4.0.2)
@@ -144,6 +145,7 @@ PLATFORMS
 DEPENDENCIES
   carrierwave
   coffee-rails (~> 3.2.1)
+  flat-ui-rails
   font-awesome-rails
   haml-rails
   jquery-fileupload-rails
