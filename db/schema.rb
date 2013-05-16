@@ -11,7 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130515063145) do
+ActiveRecord::Schema.define(:version => 20130516053244) do
+
+  create_table "playlists", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "queued_tracks", :force => true do |t|
+    t.datetime "started_playing"
+    t.integer  "track_id"
+    t.integer  "playlist_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "queued_tracks", ["playlist_id"], :name => "index_queued_tracks_on_playlist_id"
+  add_index "queued_tracks", ["track_id"], :name => "index_queued_tracks_on_track_id"
 
   create_table "tracks", :force => true do |t|
     t.string   "name"
