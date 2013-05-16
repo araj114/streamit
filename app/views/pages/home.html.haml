@@ -1,10 +1,36 @@
+%br
+%br
+%br
+
 .container
-  = form_for Track.new do |f|
-    = f.label :track, "Upload tracks:"
-    = f.file_field :track
+  %h1.pull-left Misteryoso - Autotelic
+  .btn-toolbar.pull-right
+    .btn-group
+      %a.btn.btn-primary{:href => "#"}
+        %i.icon-backward
+      %a.btn.btn-primary{:href => "#"}
+        %i.icon-play
+      %a.btn.btn-primary{:href => "#"}
+        %i.icon-stop
+      %a.btn.btn-primary{:href => "#"}
+        %i.icon-forward
+
+.container
+  .well.text-center.upload-box
+    .row
+      %br
+      %i.icon-rocket.icon-4x
+      %br
+      %br
+      %br
+      %h3 Drop Songs Here
+
+= form_for Track.new do |f|
+  = f.file_field :track, style: 'display: none'
 
   %script#template-upload{:type => "text/x-tmpl"}
     .upload
+      %i.icon-ok
       {%=o.name%}
     .progress
       .bar{ style: 'width: 0%' }
@@ -12,37 +38,30 @@
 .container
   .row
     .span4
+      %h1 Up Next
+      .todo.mrm
+        %ul
+          %li.todo-done
+            .todo-content
+              %h4.todo-name
+                %strong Currently Playing Song
+              by A Sample Band
+          - 1.upto 5 do
+            %li
+              .todo-content
+                %h4.todo-name
+                  %strong A Sample Song
+                by A Sample Band
+    .span8
+      %h1 Library
       .todo.mrm
         .todo-search
           %input.todo-search-field{:placeholder => "Search", :type => "search", :value => ""}/
         %ul
-          %li.todo-done
-            .todo-icon.fui-man-24
-            .todo-content
-              %h4.todo-name
-                Meet
-                %strong Adrian
-                at
-                %strong 6pm
-              Times Square
-          %li
-            .todo-icon.fui-menu-24
-            .todo-content
-              %h4.todo-name
-                Chat with
-                %strong V.Kudinov
-              Skype conference an 9 am
-          %li
-            .todo-icon.fui-eye-24
-            .todo-content
-              %h4.todo-name
-                Watch
-                %strong Iron Man
-              1998 Broadway
-          %li
-            .todo-icon.fui-time-24
-            .todo-content
-              %h4.todo-name
-                Fix bug on a
-                %strong Website
-              As soon as possible
+          - @tracks.each do |t|
+            %li
+              .todo-icon.fui-man-24
+              .todo-content
+                %h4.todo-name
+                  %strong= t.name
+                Test Artist

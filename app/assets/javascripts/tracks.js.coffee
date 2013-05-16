@@ -9,7 +9,7 @@ jQuery ->
       file = data.files[0]
       if types.test(file.type) || types.test(file.name)
         data.context = $($.parseHTML(tmpl("template-upload", file))[1])
-        $('#new_track').append(data.context)
+        $('.upload-box .row').append(data.context)
         data.submit()
       else
         alert("#{file.name} is not an mp3 file.")
@@ -17,3 +17,6 @@ jQuery ->
       if data.context
         progress = parseInt(data.loaded / data.total * 100, 10)
         data.context.find('.bar').css('width', progress + '%')
+
+  $('.upload-box').click (e) ->
+    $('#track_track').click()
