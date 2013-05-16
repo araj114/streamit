@@ -9,6 +9,7 @@ gem 'sqlite3'
 gem 'haml-rails'
 gem "resque"
 gem 'flat-ui-rails'
+gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 
 # Gems used only for assets and not required

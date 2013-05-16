@@ -8,3 +8,41 @@
       {%=o.name%}
     .progress
       .bar{ style: 'width: 0%' }
+
+.container
+  .row
+    .span4
+      .todo.mrm
+        .todo-search
+          %input.todo-search-field{:placeholder => "Search", :type => "search", :value => ""}/
+        %ul
+          %li.todo-done
+            .todo-icon.fui-man-24
+            .todo-content
+              %h4.todo-name
+                Meet
+                %strong Adrian
+                at
+                %strong 6pm
+              Times Square
+          %li
+            .todo-icon.fui-menu-24
+            .todo-content
+              %h4.todo-name
+                Chat with
+                %strong V.Kudinov
+              Skype conference an 9 am
+          %li
+            .todo-icon.fui-eye-24
+            .todo-content
+              %h4.todo-name
+                Watch
+                %strong Iron Man
+              1998 Broadway
+          %li
+            .todo-icon.fui-time-24
+            .todo-content
+              %h4.todo-name
+                Fix bug on a
+                %strong Website
+              As soon as possible
