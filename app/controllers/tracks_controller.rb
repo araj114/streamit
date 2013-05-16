@@ -30,6 +30,16 @@ class TracksController < ApplicationController
     @track = Track.find(params[:id])
 
     @playlist.tracks << @track
+
+    redirect_to root_path
+  end
+
+  def delete_from_playlist
+    @queued_track = QueuedTrack.find(params[:queued_track_id])
+
+    @queued_track.destroy
+
+    redirect_to root_path
   end
 
 end

@@ -1,6 +1,7 @@
 Streamit::Application.routes.draw do
   resources :tracks
   match 'tracks/:id/add_to_playlist/:playlist_id' => 'tracks#add_to_playlist', as: 'add_to_playlist', via: :post
+  match 'tracks/:queued_track_id/delete_from_playlist' => 'tracks#delete_from_playlist', as: 'delete_from_playlist', via: :post
 
   root to: "pages#home"
 

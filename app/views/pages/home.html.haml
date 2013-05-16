@@ -41,17 +41,23 @@
       %h1 Up Next
       .todo.mrm
         %ul
-          %li.todo-done
-            .todo-content
-              %h4.todo-name
-                %strong Currently Playing Song
-              by A Sample Band
-          - 1.upto 5 do
-            %li
-              .todo-content
-                %h4.todo-name
-                  %strong A Sample Song
-                by A Sample Band
+          - @playlist.queued_tracks.order.each_with_index do |t, index|
+            - if index == 0
+              %li.todo-done
+                .todo-content
+                  = link_to 'Delete', delete_from_playlist_path(t), class: 'a btn btn-danger btn-small pull-right', style: 'font-weight: normal; font-size: 14px;', method: :post
+                  %h4.todo-name
+                    %strong 
+                    =t.track.name
+                  by A Sample Band
+            - else
+              %li.todo
+                .todo-content
+                  = link_to 'Delete', delete_from_playlist_path(t), class: 'a btn btn-danger btn-small pull-right', style: 'font-weight: normal; font-size: 14px;', method: :post
+                  %h4.todo-name
+                    %strong
+                    =t.track.name
+                  by A Sample Band
     .span8
       %h1 Library
       .todo.mrm
