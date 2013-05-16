@@ -62,6 +62,7 @@
             %li
               .todo-icon.fui-man-24
               .todo-content
+                = link_to 'Add to Playlist', add_to_playlist_path(t, @playlist), class: 'a btn btn-danger btn-small pull-right', style: 'font-weight: normal; font-size: 14px;', method: :post
                 %h4.todo-name
                   %strong= t.name
                 Test Artist

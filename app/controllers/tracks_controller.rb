@@ -15,4 +15,11 @@ class TracksController < ApplicationController
 
     Resque.enqueue(MusicPlayer, @track.id)
   end
+
+  def add_to_playlist
+    @playlist = Playlist.find(params[:playlist_id])
+    @track = Track.find(params[:id])
+
+    @playlist.tracks << @track
+  end
 end

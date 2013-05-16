@@ -1,6 +1,6 @@
 Streamit::Application.routes.draw do
   resources :tracks
-
+  match 'tracks/:id/add_to_playlist/:playlist_id' => 'tracks#add_to_playlist', as: 'add_to_playlist', via: :post
 
   root to: "pages#home"
 
